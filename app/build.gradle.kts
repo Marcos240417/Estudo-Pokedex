@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    kotlin("plugin.serialization") version "1.9.22"
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -49,6 +52,49 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.compose)
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson) // Para conversão automática de JSON
+    implementation(libs.logging.interceptor) // Para logs das requisições
+
+    //coroutine
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.converter.moshi) // Alternativa ao Gson
+
+    //coil
+    implementation(libs.coil) // Versão mais recente do Coil
+    implementation(libs.coil.compose) // Suporte para Compose
+
+
+    // Timber (para logs)
+    implementation(libs.timber)
+
+    // OkHttp (para requisições HTTP)
+    implementation(libs.okhttp)
+
+    // Interceptor para logs no OkHttp
+    implementation(libs.logging.interceptor)
+
+
+    // Gson (para conversão de JSON)
+    implementation(libs.gson)
+
+    // Lifecycle (para gerenciamento do ciclo de vida)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+
+    implementation (libs.hilt.android)
+    ksp (libs.hilt.android.compiler)
+    ksp (libs.hilt.compiler)
+
+
+
+    implementation(libs.kotlinx.serialization.json)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
